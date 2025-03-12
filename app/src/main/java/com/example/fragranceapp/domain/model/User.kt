@@ -6,4 +6,12 @@ data class User(
     val email: String,
     val firstName: String?,
     val lastName: String?
-)
+) {
+    fun getDisplayName(): String {
+        return if (!firstName.isNullOrBlank() || !lastName.isNullOrBlank()) {
+            "${firstName ?: ""} ${lastName ?: ""}".trim()
+        } else {
+            username
+        }
+    }
+}
