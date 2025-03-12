@@ -1,16 +1,26 @@
 package com.example.fragranceapp.domain.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import java.util.Date
 
-@Parcelize
-data class Fragrance(
+/**
+ * Модель данных для элемента коллекции пользователя
+ *
+ * @property id Уникальный идентификатор элемента коллекции
+ * @property userId Идентификатор пользователя-владельца коллекции
+ * @property fragranceId Идентификатор аромата
+ * @property fragrance Полная информация об аромате
+ * @property collectionTypeId Идентификатор типа коллекции
+ * @property collectionTypeName Название типа коллекции
+ * @property notes Заметки пользователя о данном аромате (может быть null)
+ * @property addedAt Дата добавления аромата в коллекцию
+ */
+data class UserCollection(
     val id: Int,
-    val name: String,
-    val brandId: Int,
-    val brandName: String,
-    val releaseYear: Int?,
-    val imageUrl: String?,
-    val averageRating: Float,
-    val ratingCount: Int
-) : Parcelable
+    val userId: Int,
+    val fragranceId: Int,
+    val fragrance: Fragrance,
+    val collectionTypeId: Int,
+    val collectionTypeName: String,
+    val notes: String? = null,
+    val addedAt: String
+)
